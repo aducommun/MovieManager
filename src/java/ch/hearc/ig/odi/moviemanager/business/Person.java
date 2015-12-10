@@ -1,5 +1,6 @@
 package ch.hearc.ig.odi.moviemanager.business;
 
+import ch.hearc.ig.odi.moviemanager.exception.UniqueException;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -20,7 +21,15 @@ public class Person {
         this.lastName = lastName;
         this.movies = new HashMap();
     }
-
+    
+    public void addMovie(Movie movie) throws UniqueException {
+        if(movies.containsKey(movie.getId())) {
+            throw new UniqueException("Film deja vu !");
+        } else {
+            movie.getPeople().put(this.id, this);
+            this.movies.put(movie.getId(), movie);
+        }
+    }
 
     public Long getId() {
         return id;
