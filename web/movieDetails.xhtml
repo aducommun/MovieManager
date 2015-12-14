@@ -16,46 +16,46 @@ and open the template in the editor.
 
     <h:head>
         <title>
-            <h:outputText value="#{msg['person.details.title']}"/>
+            <h:outputText value="#{msg['movie.details.title']}"/>
         </title>
     </h:head>
 
     <h:body>
         <h2>
-            <h:outputText value="#{msg['person.details.title']}" class="col-md-1"/>
+            <h:outputText value="#{msg['movie.details.title']}" class="col-md-1"/>
         </h2>
         <div class="container">
             <h:panelGrid border="0" columns="2">
-                <h:outputLabel value="#{msg['person.id']} : " />
-                <h:outputText value="#{personDetails.person.id}" class="col-md-1"/>
-                <h:outputLabel value="#{msg['person.firstName']} : " />
-                <h:outputText value="#{personDetails.person.firstName}" class="col-md-1"/>
-                <h:outputLabel value="#{msg['person.lastName']} : " />
-                <h:outputText value="#{personDetails.person.lastName}" class="col-md-1"/>
+                <h:outputLabel value="#{msg['movie.id']} : " />
+                <h:outputText value="#{movieDetails.movie.id}" class="col-md-1"/>
+                <h:outputLabel value="#{msg['movie.name']} : " />
+                <h:outputText value="#{movieDetails.movie.name}" class="col-md-1"/>
+                <h:outputLabel value="#{msg['movie.producer']} : " />
+                <h:outputText value="#{movieDetails.movie.producer}" class="col-md-1"/>
             </h:panelGrid>
 
             <h2>
-                <h:outputText value="#{msg['person.details.list.movies']}"/>
+                <h:outputText value="#{msg['movie.details.list.people']}"/>
             </h2>
-            <h:form id="movieListForm">
-                <h:dataTable id="dtPersonsMovies" var="movie" value="#{personDetails.personMovies}">
+            <h:form id="peopleListForm">
+                <h:dataTable id="dtPersonsMovies" var="person" value="#{movieDetails.personMovies}">
                     <h:column>
                         <f:facet name="header">
-                            <h:outputText value="#{msg['movie.id']}" />
+                            <h:outputText value="#{msg['person.id']}" />
                         </f:facet>
-                        <h:outputText value="#{movie.id}"/>
+                        <h:outputText value="#{person.id}"/>
                     </h:column>
                     <h:column>
                         <f:facet name="header">
-                            <h:outputText value="#{msg['movie.name']}" class="col-md-1"/>
+                            <h:outputText value="#{msg['person.firstName']}" class="col-md-1"/>
                         </f:facet>
-                        <h:commandLink value="#{movie.name}" action="#{movieDetails.displayMovie(movie)}" class="col-md-1"/>
+                        <h:commandLink value="#{person.firstName}" action="#{personDetails.displayPerson(person)}" class="col-md-1"/>
                     </h:column>
                     <h:column>
                         <f:facet name="header">
-                            <h:outputText value="#{msg['movie.producer']}" class="col-md-1"/>
+                            <h:outputText value="#{msg['person.lastName']}" class="col-md-1"/>
                         </f:facet>
-                        <h:outputText value="#{movie.producer}" class="col-md-1"/>
+                        <h:outputText value="#{person.lastName}" class="col-md-1"/>
                     </h:column>
                 </h:dataTable>
             </h:form>

@@ -12,12 +12,16 @@ import javax.inject.Named;
  *
  * @author alexandr.ducommun
  */
-@Named(value="Persons")
+@Named(value="persons")
 @RequestScoped
 public class PersonsBean implements Serializable {
     
     @Inject Services services;
     
+    /**
+     * Get a list of people
+     * @return list of people
+     */
     public List<Person> getPersons(){
         return services.getPeopleList();
     }

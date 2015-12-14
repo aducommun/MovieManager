@@ -22,6 +22,12 @@ public class Person {
         this.movies = new HashMap();
     }
     
+    /**
+     * Add movie to the movies list of the person and add this person
+     * to the people list who saw the movie
+     * @param movie movie for adding
+     * @throws UniqueException
+     */
     public void addMovie(Movie movie) throws UniqueException {
         if(movies.containsKey(movie.getId())) {
             throw new UniqueException("Film deja vu !");
@@ -62,7 +68,5 @@ public class Person {
     public void setMovies(Map<Long, Movie> movies) {
         this.movies = movies;
     }
-    
-    
     
 }

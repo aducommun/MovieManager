@@ -22,7 +22,7 @@
                 <h:outputText value="#{msg['person.list.title']}"/>
             </h2>
             <h:form id="personListForm">
-                <h:dataTable id="dtPersons" var="person" value="#{Persons.persons}">
+                <h:dataTable id="dtPersons" var="person" value="#{persons.persons}">
                     <h:column>
                         <f:facet name="header">
                             <h:outputText value="#{msg['person.id']}" />
@@ -66,7 +66,7 @@
                         <f:facet name="header">
                             <h:outputText value="#{msg['movie.name']}" class="col-md-1"/>
                         </f:facet>
-                        <h:commandLink value="#{movie.name}" action="#{MovieDetails.displayMovie(movie)}" class="col-md-1"/>
+                        <h:commandLink value="#{movie.name}" action="#{movieDetails.displayMovie(movie)}" class="col-md-1"/>
                     </h:column>
                     <h:column>
                         <f:facet name="header">
