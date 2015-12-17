@@ -21,22 +21,22 @@ and open the template in the editor.
     </h:head>
 
     <h:body>
-        <h2>
-            <h:outputText value="#{msg['person.details.title']}" class="col-md-1"/>
-        </h2>
         <div class="container">
+            <h2>
+                <h:outputText value="#{msg['person.details.title']}"/>
+            </h2>
             <h:panelGrid border="0" columns="2">
                 <h:outputLabel value="#{msg['person.id']} : " />
-                <h:outputText value="#{personDetails.person.id}" class="col-md-1"/>
+                <h:outputText value="#{personDetails.person.id}" class="col-md-12"/>
                 <h:outputLabel value="#{msg['person.firstName']} : " />
-                <h:outputText value="#{personDetails.person.firstName}" class="col-md-1"/>
+                <h:outputText value="#{personDetails.person.firstName}" class="col-md-12"/>
                 <h:outputLabel value="#{msg['person.lastName']} : " />
-                <h:outputText value="#{personDetails.person.lastName}" class="col-md-1"/>
+                <h:outputText value="#{personDetails.person.lastName}" class="col-md-12"/>
             </h:panelGrid>
 
-            <h2>
+            <h3>
                 <h:outputText value="#{msg['person.details.list.movies']}"/>
-            </h2>
+            </h3>
             <h:form id="movieListForm">
                 <h:dataTable id="dtPersonsMovies" var="movie" value="#{personDetails.personMovies}">
                     <h:column>
@@ -47,17 +47,19 @@ and open the template in the editor.
                     </h:column>
                     <h:column>
                         <f:facet name="header">
-                            <h:outputText value="#{msg['movie.name']}" class="col-md-1"/>
+                            <h:outputText value="#{msg['movie.name']}" class="col-md-12"/>
                         </f:facet>
-                        <h:commandLink value="#{movie.name}" action="#{movieDetails.displayMovie(movie)}" class="col-md-1"/>
+                        <h:commandLink value="#{movie.name}" action="#{movieDetails.displayMovie(movie)}" class="col-md-12"/>
                     </h:column>
                     <h:column>
                         <f:facet name="header">
-                            <h:outputText value="#{msg['movie.producer']}" class="col-md-1"/>
+                            <h:outputText value="#{msg['movie.producer']}" class="col-md-12"/>
                         </f:facet>
-                        <h:outputText value="#{movie.producer}" class="col-md-1"/>
+                        <h:outputText value="#{movie.producer}" class="col-md-12"/>
                     </h:column>
                 </h:dataTable>
+                <br/>
+                <h:commandButton id="cmdBtnGoHome" value="#{msg['button.label.home']}" action="Accueil.xhtml" />
             </h:form>
         </div>
     </h:body>
